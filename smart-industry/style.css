@@ -1,0 +1,150 @@
+:root{
+  --primary:#00e0ff;
+  --bg:#020617;
+  --card:#0f172a;
+  --text:#e5e7eb;
+}
+
+body.light{
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --text:#020617;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:background 0.4s ease, color 0.4s ease;
+}
+
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  background:#020617;
+}
+
+nav a{
+  color:var(--text);
+  margin-left:1rem;
+  text-decoration:none;
+}
+
+section{
+  padding:4rem 2rem;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:3rem;
+  color:var(--primary);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+  margin-top:2rem;
+}
+
+.card{
+  background:var(--card);
+  padding:2rem;
+  border-radius:16px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,224,255,0.2);
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  background:var(--card);
+  padding:2rem;
+  border-radius:16px;
+  width:300px;
+}
+
+footer{
+  text-align:center;
+  padding:1.5rem;
+  background:#020617;
+}
+
+.card{
+  opacity:0;
+  transform:translateY(30px);
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+  transition:0.6s ease;
+}
+
+button{
+  position:relative;
+  overflow:hidden;
+}
+
+button::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.2);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:0.4s;
+}
+
+button:hover::after{
+  transform:scaleX(1);
+}
+
+body{
+  animation:pageFade 0.8s ease;
+}
+
+@keyframes pageFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+nav a.active{
+  color:var(--primary);
+  border-bottom:2px solid var(--primary);
+}
+
+.card:active{
+  transform:scale(0.97);
+}
+
+#themeToggle{
+  margin-left:1rem;
+  padding:0.4rem 0.8rem;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  background:var(--primary);
+  color:#020617;
+}
